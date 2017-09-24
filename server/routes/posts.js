@@ -13,6 +13,15 @@ router.get('/', (req, res) => {
   }).sort({_id:-1})
 })
 
+/* GET single */
+router.get('/:id', (req, res) => {
+  var db = req.db;
+  Post.findById(req.params.id, 'title description', (error, post) => {
+    if (error) { console.error(error); }
+    res.send(post)
+  })
+})
+
 /* POST */
 router.post('/', (req, res) => {
   var db = req.db;
@@ -29,6 +38,39 @@ router.post('/', (req, res) => {
     res.send({
       success: true,
       message: 'Post saved successfully!'
+    })
+  })
+})
+
+/* PUT */
+router.put('/:id', (req, res) => {
+  var db = req.db;
+  Post.findById(req.params.id, 'title description', (error, post) => {
+    if (error) { console.error(error); }
+
+    post.title = req.body.title
+    post.description = req.body.description
+    post.save((error) => {
+      if (error) {
+        console.log(error)
+      }
+      res.send({
+        success: true
+      })
+    })
+  })
+})
+
+/* DELETE */
+router.delete('/:id', (req, res) => {
+  var db = req.db;
+  Post.remove({
+    _id: req.params.id
+  }, (err, post) => {
+    if (err)
+      res.send(err)
+    res.send({
+      success: true
     })
   })
 })
