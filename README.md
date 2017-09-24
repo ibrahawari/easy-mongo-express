@@ -3,6 +3,7 @@ My Personal Website
 
 ## Installation
 Client installation:
+
     cd client
     npm install
 
