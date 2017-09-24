@@ -1,11 +1,18 @@
 # ibrahawa.ri
 My Personal Website
 
-## Installation
-Client installation:
-
+## Install
     cd client
     npm install
+
+ ## Run
+Client:
+
+    npm run dev
+
+ Server:
+    
+    npm start
 
 ## Relevant Links
 [MEVN tutorial](https://medium.com/@anaida07/mevn-stack-application-part-1-3a27b61dcae0)  
