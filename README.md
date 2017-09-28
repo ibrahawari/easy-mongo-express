@@ -1,4 +1,4 @@
-# ibrahawa.ri
+# ibrahawa.ri [![Build Status](https://travis-ci.org/ibrahawari/ibrahawari.svg?branch=master)](https://travis-ci.org/ibrahawari/ibrahawari)
 My Personal Website
 
 ## Setup
