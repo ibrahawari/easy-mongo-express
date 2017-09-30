@@ -5,6 +5,7 @@ import Users from '@/components/Users'
 import Posts from '@/components/Posts'
 import NewPost from '@/components/NewPost'
 import EditPost from '@/components/EditPost'
+import Codons from '@/components/Codons'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/posts/:id',
       name: 'EditPost',
       component: EditPost
+    },
+    {
+      path: '/codons',
+      name: 'Codons',
+      component: Codons
     }
   ]
 })
