@@ -15,9 +15,11 @@ db.once("open", function(callback){
   console.log("Connection Succeeded");
 });
 
+// import routes
 var index = require('./routes/index');
 var users = require('./routes/users');
 var posts = require('./routes/posts');
+var codons = require('./routes/codons');
 
 var app = express();
 
@@ -34,6 +36,7 @@ app.use(cors());
 app.use('/', index);
 app.use('/users', users);
 app.use('/posts', posts);
+app.use('/codons', codons);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
