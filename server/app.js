@@ -17,7 +17,6 @@ db.once("open", function(callback){
 
 // import routes
 var index = require('./routes/index');
-var users = require('./routes/users');
 var posts = require('./routes/posts');
 var codons = require('./routes/codons');
 
@@ -34,7 +33,6 @@ app.use(cors());
 
 // define routes
 app.use('/', index);
-app.use('/users', users);
 app.use('/posts', posts);
 app.use('/codons', codons);
 

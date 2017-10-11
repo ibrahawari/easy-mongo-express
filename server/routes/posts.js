@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-var Post = require("../models/Post");
+let postModel = require("../models/postModel");
+let routerModel = new postModel();
+var Post = routerModel.model;
 
 /* GET */
 router.get('/', (req, res) => {
@@ -25,11 +27,9 @@ router.get('/:id', (req, res) => {
 /* POST */
 router.post('/', (req, res) => {
   var db = req.db;
-  var title = req.body.title;
-  var description = req.body.description;
   var new_post = new Post({
-    title: title,
-    description: description
+    title: req.body.title,
+    description: req.body.description
   })
   new_post.save((error) => {
     if (error) {
