@@ -16,9 +16,12 @@ db.once("open", function(callback){
 });
 
 // import routes
-var index = require('./routes/index');
-var posts = require('./routes/posts');
-var codons = require('./routes/codons');
+let postsRoute = require('./routes/postsRoute');
+
+// instantiate the route classes and add them to this const
+const routes = {
+  postsRoute: new postsRoute()
+}
 
 var app = express();
 
@@ -32,9 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 // define routes
-app.use('/', index);
-app.use('/posts', posts);
-app.use('/codons', codons);
+app.use('/posts', routes.postsRoute.router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

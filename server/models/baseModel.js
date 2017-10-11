@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 /**
- * Extend this class with a name and a schema definition
+ * Extend this abstract class with a name and a schema definition
  */
 class baseModel {
   constructor(name, definition) {
@@ -9,4 +9,4 @@ class baseModel {
   }
 }
 
-module.exports = baseModel
+module.exports = baseModel;
