@@ -1,77 +1,58 @@
-var express = require('express');
+let express = require('express');
 var router = express.Router();
 
 let postModel = require("../models/postModel");
-let routerModel = new postModel();
-var Post = routerModel.model;
+let m = new postModel();
+var Model = m.model;
 
 /* GET */
 router.get('/', (req, res) => {
-  Post.find({}, 'title description', (error, posts) => {
-    if (error) { console.error(error); }
-    res.send({
-      posts: posts
-    })
-  }).sort({_id:-1})
+  Model.find({}, (err, data) => {
+    if (err) {
+      res.status(400).send(err)
+    }
+    res.status(200).send(data)
+  })
 })
 
 /* GET single */
 router.get('/:id', (req, res) => {
-  var db = req.db;
-  Post.findById(req.params.id, 'title description', (error, post) => {
-    if (error) { console.error(error); }
-    res.send(post)
+  Model.findById(req.params.id, (err, data) => {
+    if (err) {
+      res.status(400).send(err)
+    }
+    res.status(200).send(data)
   })
 })
 
 /* POST */
 router.post('/', (req, res) => {
-  var db = req.db;
-  var new_post = new Post({
-    title: req.body.title,
-    description: req.body.description
-  })
-  new_post.save((error) => {
-    if (error) {
-      console.log(error)
+  let m = new Model(req.body)
+  m.save((err, data) => {
+    if (err) {
+      res.status(400).send(err)
     }
-    res.send({
-      success: true,
-      message: 'Post saved successfully!'
-    })
+    res.status(201).send(data)
   })
 })
 
 /* PUT */
 router.put('/:id', (req, res) => {
-  var db = req.db;
-  Post.findById(req.params.id, 'title description', (error, post) => {
-    if (error) { console.error(error); }
-
-    post.title = req.body.title
-    post.description = req.body.description
-    post.save((error) => {
-      if (error) {
-        console.log(error)
-      }
-      res.send({
-        success: true
-      })
-    })
+  Model.where({ _id: req.params.id }).update(req.body, (err, data) => {
+    if (err) {
+      res.status(400).send(err)
+    }
+    res.status(201).send(data)
   })
 })
 
 /* DELETE */
 router.delete('/:id', (req, res) => {
-  var db = req.db;
-  Post.remove({
-    _id: req.params.id
-  }, (err, post) => {
-    if (err)
-      res.send(err)
-    res.send({
-      success: true
-    })
+  Model.remove({ _id: req.params.id }, (err, data) => {
+    if (err) {
+      res.stauts(400).send(err)
+    }
+    res.status(200).send(data)
   })
 })
 

@@ -5,8 +5,8 @@ let baseModel = require('./baseModel');
 class postModel extends baseModel {
     constructor() {
         super('post', {
-            title: String,
-            description: String
+            title: {type: String, required: true},
+            description: {type: String, required: true}
         });
     }
 }
