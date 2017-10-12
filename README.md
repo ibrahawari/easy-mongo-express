@@ -43,9 +43,9 @@ class postsRoute extends baseRoute {
         if (err)
           res.status(400).send(err);
         res.status(200).send('Hello World!');
-      })
+      });
     }
-    this.init()
+    this.init();
   }
 }
 
