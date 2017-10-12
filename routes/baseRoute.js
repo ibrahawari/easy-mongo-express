@@ -41,7 +41,6 @@ class baseRoute {
         res.status(200).send(data);
       })
     }
-    this.init();
   }
   init() {
     this.router.post('/', this.create);
