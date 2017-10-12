@@ -4,7 +4,7 @@ A highly flexible express server connected to mongoDB allowing the simple additi
 
 ## add model
 
-In `models`, create a new javascript file to extend the baseModel, for example:
+In `models`, create a new javascript file to extend the `baseModel`, for example:
 
 ```javascript
 let baseModel = require('./baseModel');
@@ -25,7 +25,7 @@ module.exports = postModel;
 
 ## add route
 
-In `routes`, create a new javascript file to extend the baseRoute, for example:
+In `routes`, create a new javascript file to extend the `baseRoute`, for example:
 
 ```javascript
 let baseRoute = require('./baseRoute');
