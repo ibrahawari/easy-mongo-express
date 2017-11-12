@@ -11,14 +11,14 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/posts')
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error"));
-db.once("open", function(callback){
+db.once("open", function (callback) {
   console.log("Connection Succeeded");
 });
 
 // instantiate the route classes and add them to this const
 const routes = {
   posts: (() => {
-    let postsRoute = require('./routes/postsRoute');    
+    let postsRoute = require('./routes/postsRoute');
     return new postsRoute()
   })(),
   scripts: (() => {
