@@ -13,8 +13,9 @@ class scriptsRoute extends baseRoute {
             pythonShell.run(
                 req.body.script,
                 {
+                    args: req.body.args,
                     scriptPath: req.body.scriptPath,
-                    args: req.body.args
+                    pythonPath: req.body.pythonPath
                 },
                 (err, out) => {
                     if (err)

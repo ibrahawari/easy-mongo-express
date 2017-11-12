@@ -8,7 +8,8 @@ class scriptModel extends baseModel {
       args: { type: String, required: true },
       script: { type: String, required: true },
       scriptPath: { type: String, required: true },
-      output: { type: String, required: true }
+      output: { type: String, required: true },
+      pythonPath: { type: String, required: true }
     });
   }
 }

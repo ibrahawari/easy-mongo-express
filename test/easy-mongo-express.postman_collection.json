@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"script\": \"test.py\", \n\t\"scriptPath\": \"/Users/ibrahimhawari/Documents/easy-mongo-express/scripts\", \n\t\"args\": 237,\n\t\"output\": \"\"\n}"
+					"raw": "{\n\t\"script\": \"tensorflow_test.py\", \n\t\"scriptPath\": \"/Users/ibrahimhawari/Documents/easy-mongo-express/scripts\",\n\t\"args\": \" \",\n\t\"pythonPath\": \"/Users/ibrahimhawari/tensorflow/bin/python\"\n}"
 				},
 				"description": ""
 			},
