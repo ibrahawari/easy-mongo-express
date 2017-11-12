@@ -15,12 +15,12 @@ db.once("open", function(callback){
   console.log("Connection Succeeded");
 });
 
-// import routes
-let postsRoute = require('./routes/postsRoute');
-
 // instantiate the route classes and add them to this const
 const routes = {
-  postsRoute: new postsRoute()
+  postsRoute: (() => {
+    let postsRoute = require('./routes/postsRoute');    
+    return new postsRoute()
+  })()
 }
 
 var app = express();
