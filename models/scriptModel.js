@@ -5,8 +5,10 @@ let baseModel = require('./baseModel');
 class scriptModel extends baseModel {
   constructor() {
     super('script', {
+      args: { type: String, required: true },
+      script: { type: String, required: true },
       scriptPath: { type: String, required: true },
-      args: { type: String, required: true }
+      output: { type: String, required: true }
     });
   }
 }
