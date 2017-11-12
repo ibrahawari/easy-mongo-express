@@ -20,6 +20,10 @@ const routes = {
   posts: (() => {
     let postsRoute = require('./routes/postsRoute');    
     return new postsRoute()
+  })(),
+  scripts: (() => {
+    let scriptsRoute = require('./routes/scriptsRoute');
+    return new scriptsRoute()
   })()
 }
 
@@ -36,6 +40,7 @@ app.use(cors());
 
 // define routes
 app.use('/posts', routes.posts.router);
+app.use('/scripts', routes.scripts.router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
