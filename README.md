@@ -2,6 +2,28 @@
 
 A highly flexible express server connected to mongoDB allowing the simple addition of new database models and routes.
 
+## install tensorflow
+
+For more please click [here](https://www.tensorflow.org/install/install_mac#installing_with_virtualenv).
+
+```
+$ sudo easy_install pip
+$ pip install --upgrade virtualenv
+$ virtualenv --system-site-packages ~/tensorflow
+$ source ~/tensorflow/bin/activate
+$ easy_install -U pip
+$ pip install --upgrade tensorflow
+```
+
+## run
+
+To run the server:
+
+```
+$ npm install
+$ npm start
+```
+
 ## add model
 
 In `models`, create a new javascript file to extend the `baseModel`, for example:
@@ -50,13 +72,4 @@ class postsRoute extends baseRoute {
 }
 
 module.exports = postsRoute;
-```
-
-## run
-
-To run the server:
-
-```
-npm install
-npm start
 ```
