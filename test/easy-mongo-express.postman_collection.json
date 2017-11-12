@@ -1,0 +1,51 @@
+{
+	"variables": [],
+	"info": {
+		"name": "easy-mongo-express",
+		"_postman_id": "1175a235-1cb7-6a62-1386-6fd527d5e5b8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/scripts",
+			"request": {
+				"url": "http://localhost:3000/scripts",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"script\": \"test.py\", \n\t\"scriptPath\": \"/Users/ibrahimhawari/Documents/easy-mongo-express/scripts\", \n\t\"args\": 237,\n\t\"output\": \"\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/posts",
+			"request": {
+				"url": "http://localhost:3000/posts",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\": \"a\", \"description\": \"b\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
