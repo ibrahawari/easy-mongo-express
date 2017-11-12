@@ -17,7 +17,7 @@ db.once("open", function(callback){
 
 // instantiate the route classes and add them to this const
 const routes = {
-  postsRoute: (() => {
+  posts: (() => {
     let postsRoute = require('./routes/postsRoute');    
     return new postsRoute()
   })()
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 // define routes
-app.use('/posts', routes.postsRoute.router);
+app.use('/posts', routes.posts.router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
