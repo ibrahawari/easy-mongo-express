@@ -1,6 +1,6 @@
-# easy-mongo-express
+# quickserver
 
-A highly flexible express server connected to mongoDB allowing the simple addition of new database models and routes.
+A highly flexible express server connected to mongoDB allowing the simple addition of new database models and routes with a focus on the execution of ML python scripts
 
 ## install tensorflow
 
