@@ -20,7 +20,7 @@ class scriptsRoute extends baseRoute {
                 (err, out) => {
                     if (err)
                         res.status(400).send(err);
-                    req.body.output = out;
+                    req.body.output = out || [];
                     let m = new dbModel.model(req.body);
                     m.save((err, data) => {
                         if (err)
