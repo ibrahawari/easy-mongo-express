@@ -21,12 +21,12 @@ y = tf.placeholder(tf.float32)  # desired result
 squared_deltas = tf.square(linear_model - y)
 # its abstraction into a scalar value measuring loss
 loss = tf.reduce_sum(squared_deltas)
-print(sess.run(loss, {x: [1, 2, 3, 4], y: [0, -1, -2, -3]}))
 
-# === fixing the linear model to create no loss ===
-fixW = tf.assign(W, [-1.])
-fixb = tf.assign(b, [1.])
-sess.run([fixW, fixb])
-print(sess.run(loss, {x: [1, 2, 3, 4], y: [0, -1, -2, -3]}))
-
-# We guessed the "perfect" values of W and b, but the whole point of machine learning is to find the correct model parameters automatically.
+# === training ===
+optimizer = tf.train.GradientDescentOptimizer(0.01)
+train = optimizer.minimize(loss)
+sess.run(init)  # reset values to incorrect defaults.
+print(sess.run([W, b]))
+for i in range(10):
+    sess.run(train, {x: [1, 2, 3, 4], y: [0, -1, -2, -3]})
+    print(sess.run([W, b]))
