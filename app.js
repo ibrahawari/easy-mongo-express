@@ -18,11 +18,15 @@ db.once("open", function (callback) {
 const routes = {
   posts: (() => {
     let postsRoute = require('./routes/postsRoute');
-    return new postsRoute()
+    return new postsRoute();
   })(),
   scripts: (() => {
     let scriptsRoute = require('./routes/scriptsRoute');
-    return new scriptsRoute()
+    return new scriptsRoute();
+  })(),
+  webData: (() => {
+    let webDataRoute = require('./routes/webDataRoute');
+    return new webDataRoute();
   })()
 }
 
@@ -40,5 +44,6 @@ app.use(cors());
 // define routes
 app.use('/posts', routes.posts.router);
 app.use('/scripts', routes.scripts.router);
+app.use('/webData', routes.webData.router);
 
 module.exports = app;
