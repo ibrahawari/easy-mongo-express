@@ -12,9 +12,13 @@
     "cors": "^2.8.4",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "mocha": "^5.0.5",
     "mongoose": "^4.11.12",
     "morgan": "~1.8.1",
     "nodemon": "^1.12.1",
     "python-shell": "^0.4.0"
+  },
+  "devDependencies": {
+    "node-mocks-http": "^1.5.8"
   }
 }
