@@ -1,8 +1,9 @@
 let baseRoute = require('./baseRoute');
 let webDataModel = require('../models/webDataModel');
-const { spawn } = require('child_process');
+let cheerio = require('cheerio');
+let request = require('request');
 /**
- * Express route for storing data cURL'ed from websites in mongodb
+ * Express route for storing data scraped from websites in mongodb
  */
 class webDataRoute extends baseRoute {
     constructor() {
@@ -10,11 +11,16 @@ class webDataRoute extends baseRoute {
         super(dbModel);
         // Override baseRoute.create
         this.create = (req, res) => {
-            const child = spawn('curl', [req.body.url]);
-            child.stdout.on('data', (data) => {
-                req.body.data += data;
-            });
-            child.on('close', () => {
+            request({
+                method: 'GET',
+                url: req.body.url
+            }, function (err, response, body) {
+                if (err)
+                    res.status(400).send(err);
+                
+                let $ = cheerio.load(body);
+                req.body.data = body;
+                req.body.text_content = $.text();
                 let m = new dbModel.model(req.body);
                 m.save((err, data) => {
                     if (err)
