@@ -46,6 +46,26 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:3000/webData",
+			"request": {
+				"url": "http://localhost:3000/webData",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"url\": \"https://stackoverflow.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
