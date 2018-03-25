@@ -17,7 +17,14 @@ $ pip install --upgrade tensorflow
 
 ## run
 
-To run the server:
+Start mongodb on localhost
+
+```
+$ cd mongodb/bin
+$ ./mongod
+```
+
+Run the server:
 
 ```
 $ npm install
